@@ -32,9 +32,14 @@ public class HelloServlet extends HttpServlet {
                 "<h1 style=\"color:" + titleColor + "\">" +
                 "Hello " + htmlEscape(user) + "!" +
                 "</h1>" +
-                "<p>I am a test application and I run on server '" + hostName + "' in the '" +Environment.getName() +"' environment.</p>" +
-                "<p>My version is: " + version + "</p>" +
-                "<p>These are my friends:</p>" +
+                "<p>I am a test application and I run on server '" + hostName + "' in the '" + Environment.getName() + "' environment.</p>" +
+                "<p>My version is: " + version + "</p>");
+
+        if (Environment.getConfiguration().isFeatureFriendCound()) {
+            out.println("<p>I have " + friendRepository.getFriendCount() + " friends!</p>");
+        }
+
+        out.println("<p>These are my friends:</p>" +
                 "<table>" +
                 "<thead>" +
                 "<tr><th>First Name</th><th>Last Name</th></tr>" +

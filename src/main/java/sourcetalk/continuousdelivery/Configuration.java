@@ -28,4 +28,8 @@ public class Configuration {
     public boolean isDbLoadTestData() {
         return Boolean.parseBoolean(properties.getProperty("db.loadTestData"));
     }
+
+    public boolean isFeatureFriendCound() {
+        return Boolean.parseBoolean(properties.getProperty("feature.friendCount"));
+    }
 }

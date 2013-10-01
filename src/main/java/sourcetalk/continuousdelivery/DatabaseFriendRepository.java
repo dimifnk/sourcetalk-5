@@ -48,4 +48,17 @@ public class DatabaseFriendRepository implements FriendRepository {
             throw new IllegalStateException("Unable to insert into database", e);
         }
     }
+
+    @Override
+    public int getFriendCount() {
+        try (Connection connection = getConnection()) {
+            try (Statement statement = connection.createStatement()) {
+                try (ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM friends")) {
+                    return resultSet.getInt(1);
+                }
+            }
+        } catch (SQLException e) {
+            throw new IllegalStateException("Unable to query database", e);
+        }
+    }
 }

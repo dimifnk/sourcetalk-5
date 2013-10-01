@@ -6,4 +6,6 @@ public interface FriendRepository {
     List<Friend> getFriends();
 
     void addFriend(Friend newFriend);
+
+    int getFriendCount();
 }

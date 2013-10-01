@@ -21,4 +21,9 @@ public class InMemoryFriendRepository implements FriendRepository {
     public void addFriend(Friend newFriend) {
         friends.add(newFriend);
     }
+
+    @Override
+    public int getFriendCount() {
+        return friends.size();
+    }
 }
